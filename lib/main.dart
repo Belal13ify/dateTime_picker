@@ -18,7 +18,8 @@ class MyApp extends StatelessWidget {
         navigateAfterSeconds: HomeScreen(),
         title: Text(
           'Welcome to the DateTime Picker',
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+          style: TextStyle(
+              fontWeight: FontWeight.bold, fontSize: 20.0, color: Colors.black),
         ),
         image: Image.asset(
           'images/datetime.jpg',

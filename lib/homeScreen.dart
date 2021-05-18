@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final mintues = time.minute.toString().padLeft(2, '0');
 
     datetime =
-        'Date: ${DateFormat.yMMMd().format(date)}\n\n Time: $hours:$mintues';
+        'Date: ${DateFormat.yMMMd().format(date)}\n\nTime: $hours:$mintues';
     SnackBar mySnackBar = SnackBar(
         duration: Duration(seconds: 5),
         content: Text(
@@ -42,7 +42,6 @@ class _HomeScreenState extends State<HomeScreen> {
       return 'Please Select Date';
     } else {
       return datetime;
-      // return '${date.day}/${date.month}/${date.year} ${time.hour}:${time.minute}';
     }
   }
 
@@ -68,14 +67,24 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: 30,
             ),
-            InkWell(
-              onTap: pickDateAndTime,
-              child: Text(
-                'Press here to Pick Date and time',
-                style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black),
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+              decoration: BoxDecoration(
+                  color: Colors.green,
+                  border: Border.all(width: 1),
+                  borderRadius: BorderRadius.circular(20)),
+              child: InkWell(
+                customBorder: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(18.0),
+                    side: BorderSide(color: Colors.red)),
+                onTap: pickDateAndTime,
+                child: Text(
+                  'Press here to Pick Date and time',
+                  style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
+                ),
               ),
             )
           ],
