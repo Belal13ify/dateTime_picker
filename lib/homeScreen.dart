@@ -9,6 +9,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   DateTime date;
   TimeOfDay time;
+
   String datetime;
   void pickDateAndTime() async {
     var newDate = await showDatePicker(
@@ -23,17 +24,19 @@ class _HomeScreenState extends State<HomeScreen> {
       date = newDate;
       time = newTime;
     });
-    final hours = time.hour.toString().padLeft(2, '0');
-    final mintues = time.minute.toString().padLeft(2, '0');
+    String hours = time.hour.toString().padLeft(2, '0');
+    String mintues = time.minute.toString().padLeft(2, '0');
+    String _date = DateFormat.yMMMd().format(date);
 
-    datetime =
-        'Date: ${DateFormat.yMMMd().format(date)}\n\nTime: $hours:$mintues';
+    datetime = 'Date: $_date\n\nTime: $hours:$mintues';
     SnackBar mySnackBar = SnackBar(
-        duration: Duration(seconds: 5),
-        content: Text(
-          datetime,
-          style: TextStyle(fontSize: 20, color: Colors.white),
-        ));
+      duration: Duration(seconds: 5),
+      content: Text(
+        'Date: $_date\n\nTime: $hours:$mintues',
+        style: TextStyle(fontSize: 20, color: Colors.limeAccent),
+        textAlign: TextAlign.center,
+      ),
+    );
     ScaffoldMessenger.of(context).showSnackBar(mySnackBar);
   }
 
