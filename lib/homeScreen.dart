@@ -30,13 +30,26 @@ class _HomeScreenState extends State<HomeScreen> {
 
     datetime = 'Date: $_date\n\nTime: $hours:$mintues';
     SnackBar mySnackBar = SnackBar(
-      duration: Duration(seconds: 5),
-      content: Text(
-        'Date: $_date\n\nTime: $hours:$mintues',
-        style: TextStyle(fontSize: 20, color: Colors.limeAccent),
-        textAlign: TextAlign.center,
-      ),
-    );
+        duration: Duration(seconds: 8),
+        content: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Icon(
+              Icons.calendar_today,
+              color: Colors.white,
+              size: 30,
+            ),
+            Text('Date: $_date',
+                style: TextStyle(fontSize: 18, color: Colors.limeAccent)),
+            Icon(
+              Icons.alarm,
+              color: Colors.white,
+              size: 30,
+            ),
+            Text('Time: $hours:$mintues',
+                style: TextStyle(fontSize: 18, color: Colors.limeAccent)),
+          ],
+        ));
     ScaffoldMessenger.of(context).showSnackBar(mySnackBar);
   }
 
@@ -75,18 +88,18 @@ class _HomeScreenState extends State<HomeScreen> {
               decoration: BoxDecoration(
                   color: Colors.green,
                   border: Border.all(width: 1),
-                  borderRadius: BorderRadius.circular(20)),
+                  borderRadius: BorderRadius.circular(8)),
               child: InkWell(
                 customBorder: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(18.0),
+                    // borderRadius: BorderRadius.circular(10.0),
                     side: BorderSide(color: Colors.red)),
                 onTap: pickDateAndTime,
                 child: Text(
-                  'Press here to Pick Date and time',
+                  'Press to Pick Date and time',
                   style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black),
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             )

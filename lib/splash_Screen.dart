@@ -7,7 +7,7 @@ class Splash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SplashScreen(
-      seconds: 5,
+      seconds: 8,
       navigateAfterSeconds: HomeScreen(),
       title: Text(
         'Welcome to the DateTime Picker',
